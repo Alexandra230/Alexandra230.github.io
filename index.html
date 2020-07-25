@@ -1,0 +1,79 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Мой первый проект</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body style="background-image: url(../myproject/img/3982.jpg)">
+	<div class="block">
+		<div class="block1">
+			Трудно быть лошадью, когда вокруг все бараны
+			<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="textbutton">Регистрация</button>
+		</div>
+		<div class="block2">
+			<img src="img/animals-3790130_1280.jpg" alt="Задана ширина и высота" width="400" height="400">
+		</div>
+	</div>
+	<div class="btn-group">
+		<button class="button1">
+			<img src="img/horse-head-with-three-stars.png" alt="Задана ширина и высота" width="50" height="50">
+		</button>
+		<button class="button2">WELCOME INTRO</button>
+		<button class="button3">ABOUT US</button>
+		<button class="button4">CONTACT US</button>
+	</div>
+<div id="id01" class="modal">
+	<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+	<form id="form1" method="post" onsubmit="javascript:return validate('form1','email');" class="modal-content" action="#">
+	<div class="container">
+
+	<p>Please fill in this form to create an account.</p>
+	<hr>
+	<label for="email"><b>Email</b></label>
+	<input type="text" placeholder="Enter Email" id="email" name="email" required>
+	
+	<label for="psw"><b>Password</b></label>
+	<input type="password" placeholder="Enter Password" name="psw" pattern="[a-zA-Z0-9]+" minlength="4" maxlength="15" required>
+	<p class="p1">*4-10 symbols</p>
+	<label for="psw-repeat"><b>Repeat Password</b></label>
+	<input type="password" placeholder="Repeat Password" name="psw-repeat" pattern="[a-zA-Z0-9]+" minlength="4" maxlength="15" required>
+	<label>
+	<input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+	</label>
+
+	<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+	<div class="clearfix">
+	<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+	<button type="submit" class="signupbtn">Sign Up</button>
+	</div>
+	</div>
+	</form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+	if (event.target == modal) {
+		 modal.style.display = "none";
+	}
+}
+</script>
+<script>
+function validate(form_id,email) {
+	var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+	var address = document.forms[form_id].elements[email].value;
+	if(reg.test(address) == false) {
+	alert('Введите корректный e-mail');
+	return false;
+	}
+}
+</script>
+<script src="js/valid.js"></script>
+</body>
+</html>
